@@ -4,13 +4,13 @@
 In this project, my group and I use various ML techiniques to classify baseball pitches. Through this process we hope to discover which models predict pitches best, show which features have the most predictive power in classifying pitches, and familiarize ourselves with MLB Statcast data.
 
 ## Dataset
-To approach this project we used pitch-by-pitch Statcast data from the 2018 season. The fianl dataset we used after cleaning is located in the final upload, named michaels_cleaned_mlb_data.csv
+To approach this project we used pitch-by-pitch Statcast data from the 2018 season. The final dataset we used after cleaning is located in the final upload, named michaels_cleaned_mlb_data.csv
 
 ###### **Data Cleaning (skip if uninterested)**
-Before we had michaels_cleaned_mlb_data.csv, we downloaded at group of 5 datatables representing every play, player, and game from 2018 season. The cleaning steps are listed below:
+Before we had michaels_cleaned_mlb_data.csv, we downloaded a group of 5 datatables representing every play, player, and game from 2018 season. The cleaning steps are listed below:
 
 - merge datatables
-- take out pitch-outs, intentional walks, and rare piches (ex ephus)
+- take out pitch-outs, intentional walks, and rare pitches (ex ephus)
 - correct datatypes
 - downsample data from 3 million pitches to 50k pitches to improve runtime of our code (this decision could lower our test accuracy so if this model were ever to deploy, we would simply rerun our code with all the datapoints)
 - remove features that were either redundent, would cause overfitting (name of pitcher/batter), or had obviously little significance
@@ -22,7 +22,7 @@ To prove the the separability of the different pitches, we decided to perform a 
 
 ![Screen Shot 2021-12-19 at 8 07 35 PM](https://user-images.githubusercontent.com/70180470/146710483-d0f02293-045c-46d6-ba55-99e845395ee9.png)
 
-NOTE: FT - two-seam fastball, SI - sinker, FF - four-seam fastball, CH - Changeup, SL - slider, CU - cutter, IN , FC - cutter, KC - knuck curve 
+NOTE: FT - two-seam fastball, SI - sinker, FF - four-seam fastball, CH - Changeup, SL - slider, CU - curveball, FC - cutter, KC - knuckle curve, KN - Knuckle ball
 
 This visualization shows that the models should have success in classifying pitches as they appear separable. We can use this visualization to see which pitches are the most unique and which pitches are most similar. For example, the four-seam fastball looks the most distinguishable while the two-seam fastball and the sinker seem most similar. This visualizations will serve as a good reference point when approaching our task.
 
@@ -62,9 +62,9 @@ Again, these are a subset of the visualizations. The rest are in the in-depth vi
 
 ## Models
 Our model choices for the classification project were a Neural Netwok, a random forest, and a decision tree bagging classifier.
-We expected the Nueral Network and the bagging tree bagging classifier to perform with the higher accuracies while the random forest provided the better interpretability. Details/process of each model can be found in each corresponding file in the project folder, while below will offer a high level discussion of the models.
+We expected the Neural Network and the bagging tree bagging classifier to perform with the higher accuracies while the random forest provided the better interpretability. Details/process of each model can be found in each corresponding file in the project folder, while below will offer a high level discussion of the models.
 
-###### **Nueral Network**
+###### **Neural Network**
 TEST ACCURACY: 86.2%
 Parameters/Hyperparameters
 - Two hidden layers with ReLu activation
